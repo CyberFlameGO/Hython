@@ -8,3 +8,10 @@ class GuildNotFoundException(Exception):
 
 class HypixelAPIException(Exception):
     print('API has caught an error, this is not due to Hypthon!')
+
+
+class InvalidAPIKeyException(Exception):
+    print('Your API key is invalid, check it!')
+
+class JsonParsingException(Exception):
+    print('Error caught while attempting to parse JSON data from the API')
