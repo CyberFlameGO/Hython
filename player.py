@@ -21,3 +21,39 @@ class Player:
             self.JSON = h.get_json_data('player', uuid=uuid)
         else:
             raise e.PlayerNotFoundException
+
+        def get_player_info(self):
+            """
+            Returns with common data on the player in question
+            :param self:
+            :return:
+            """
+
+        JSON = self.JSON
+        pi = {}  # player info, too lazy to write out the rest of it
+        pi['uuid'] = self.uuid
+
+    def get_player_name(self):
+        """
+        Converts a player uuid to a name
+        """
+        JSON = self.JSON
+        return JSON['displayname']
+
+    #TODO add leveling
+
+    def get_rank(self):
+        """
+        brings in player ranks for package or monthly data
+        :return:
+        """
+        JSON = self.JSON
+        rank = {}
+        locations = ['packageRank', 'rank', 'newPackageRank', 'monthlyPackageRank']
+
+        for l in locations:
+            if l in JSON:
+                if JSON[l] == 'none' or 'NONE':
+                    continue
+                normal_rank = JSON[l].title()
+                normal_rank = normal_rank.replace('_', ' ').replace('Mvp', 'MVP').replace('Vip', 'VIP').replace('Superstar', 'MVP++')  # who own earth names it superstar?!?!?!
