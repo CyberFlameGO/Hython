@@ -1,5 +1,3 @@
-import constants as c
-import random
 from exceptions import hypthon_exceptions as e
 
 
