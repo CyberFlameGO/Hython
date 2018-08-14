@@ -1,3 +1,4 @@
 # Hypthon
 Hypixel API written in python
-[![CircleCI](https://circleci.com/gh/Eros/Hypthon/tree/master.svg?style=svg)](https://circleci.com/gh/Eros/Hypthon/tree/master)
+#
+[![CircleCI](https://circleci.com/gh/Eros/Hypthon.svg?style=svg)](https://circleci.com/gh/Eros/Hypthon)
