@@ -15,6 +15,7 @@ class Player:
 
         if len(uuid) <= 16:
             self.JSON = h.get_json_data('player', uuid=uuid)
+            JSON = self.JSON
             self.uuid = self.JSON['uuid']
         elif len(uuid) == 32 or len(uuid) == 36:
             self.JSON = h.get_json_data('player', uuid=uuid)
