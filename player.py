@@ -40,12 +40,12 @@ class Player:
         JSON = self.JSON
         return JSON['displayname']
 
-    #TODO add leveling
+    # TODO add leveling
 
     def get_rank(self):
         """
         brings in player ranks for package or monthly data
-        :return:
+        :return rank:
         """
         JSON = self.JSON
         rank = {}
@@ -56,4 +56,11 @@ class Player:
                 if JSON[l] == 'none' or 'NONE':
                     continue
                 normal_rank = JSON[l].title()
-                normal_rank = normal_rank.replace('_', ' ').replace('Mvp', 'MVP').replace('Vip', 'VIP').replace('Superstar', 'MVP++')  # who own earth names it superstar?!?!?!
+                normal_rank = normal_rank.replace('_', ' ').replace('Mvp', 'MVP').replace('Vip', 'VIP').replace(
+                    'Superstar', 'MVP++')  # who own earth names it superstar?!?!?!
+                rank['rank'] = normal_rank.replace(' Plus', '+').replace('Youtuber', 'YouTube')
+
+        if not 'rank' in rank:
+            rank['rank'] = 'NON'
+
+        return rank
