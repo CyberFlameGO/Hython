@@ -1,4 +1,6 @@
 from exceptions import hypthon_exceptions as e
+import constants as c
+import grequests as g
 
 
 def get_json_data(request_type, **kwargs):
@@ -23,3 +25,9 @@ def get_json_data(request_type, **kwargs):
                 uuid_type = 'name'
     except e.JsonParsingException and e.PlayerNotFoundException:
         pass
+
+    for name, val in kwargs.items():
+        if request_type == 'player' and name == 'uuid':
+            name = uuid_type
+        end = '&' + name + '=' + val
+    all_url = c.API_URL + request_type + '?key=' + key + end
