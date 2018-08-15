@@ -22,16 +22,26 @@ class Player:
         else:
             raise e.PlayerNotFoundException
 
-        def get_player_info(self):
-            """
-            Returns with common data on the player in question
-            :param self:
-            :return:
-            """
-
+    def get_player_info(self):
+        """
+        Returns with common data on the player in question
+        :param self:
+        :return:
+        """
         JSON = self.JSON
-        pi = {}  # player info, too lazy to write out the rest of it
+        pi = {}
         pi['uuid'] = self.uuid
+        pi['displayName'] = self.get_player_info(self)
+        pi['rank'] = self.get_rank(self)
+        pi['networkLevel'] = self.find_level(self)
+        keys = ['karma', 'firstLogin', 'lastLogin', 'mcVersionRp', 'networkExp', 'socialMedia', 'prefix']
+        for item in keys:
+            try:
+                pi[item] = JSON[item]
+            except KeyError:
+                print('Key error caught! aborting request!')
+                pass
+        return pi
 
     def get_player_name(self):
         """
