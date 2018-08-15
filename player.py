@@ -40,7 +40,21 @@ class Player:
         JSON = self.JSON
         return JSON['displayname']
 
-    # TODO add leveling
+    def find_level(self):
+        JSON = self.JSON
+        """
+        #TODO CREATE SOMETHING TO HANDLE THE XP IN A 
+        PROPER MANNER
+        :return: 
+        """
+        try:
+            net_xp = JSON['networkExp']
+        except e.HypixelAPIException:
+            net_xp = 0
+            try:
+                net_level = JSON['networkLevel']
+            except e.HypixelAPIException:
+                net_level = 0
 
     def get_rank(self):
         """
