@@ -84,7 +84,7 @@ class Player:
                     'Superstar', 'MVP++')  # who own earth names it superstar?!?!?!
                 rank['rank'] = normal_rank.replace(' Plus', '+').replace('Youtuber', 'YouTube')
 
-        if not 'rank' in rank:
+        if 'rank' not in rank:
             rank['rank'] = 'NON'
 
         return rank
