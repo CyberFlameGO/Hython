@@ -33,7 +33,7 @@ COPY --from=dependencies /app/requirements.txt ./
 COPY --from=dependencies /root/.cache /root/.cache
 
 # Install app dependencies
-RUN pip install -r requirements.txt
+# RUN pip install -r requirements.txt IDK WHY THIS IS FUCKED?!?!?!
 COPY --from=build /app/ ./
 
 RUN set -ex ;\
