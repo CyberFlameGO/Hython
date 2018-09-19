@@ -12,4 +12,5 @@ Hypixel API written in python
 2) add proper testing circumstances
 
 ~3) Figure out why circleci is not displaying the build status~
+
 4) Add onto pip for easier download
