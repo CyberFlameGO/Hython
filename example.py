@@ -4,7 +4,7 @@ from constants import Setter
 
 
 def main():
-    KEY = Setter.set_api_Key('REPLACE WITH YOUR KEY')
+    KEY = Setter.set_api_key('REPLACE WITH YOUR KEY')
     player = Player.get_player_info('RapidTheNerd')
     print(player)
     level = Player.find_level('RapidTheNerd')

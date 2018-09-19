@@ -3,7 +3,7 @@ from constants import Setter
 
 
 def handle_setup(key):
-    Setter.set_api_Key(key)
+    Setter.set_api_key(key)
 
 
 def handle_player_test(uuid):

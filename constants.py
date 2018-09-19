@@ -7,5 +7,5 @@ KEY_LENGTH = 36
 class Setter:
 
     @staticmethod
-    def set_api_Key(key):
+    def set_api_key(key):
         API_KEY = key
