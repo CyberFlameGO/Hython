@@ -25,7 +25,7 @@ class Commands(Command):
         os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
         os.system('twine upload dist/*')
         remove = ['dist', 'build', '__pycache__']
-
+        print('[+] Found OS with Version: {0}'.format(os.sys.version))
         for folder in remove:
             try:
                 rmtree(os.path.join(here, folder))
