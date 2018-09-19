@@ -10,5 +10,5 @@ Hypixel API written in python
 ### todo:
 1) Replace the current leveling output with a math formula
 2) add proper testing circumstances
-3) Figure out why circleci is not displaying the build status
+~3) Figure out why circleci is not displaying the build status~
 4) Add onto pip for easier download
