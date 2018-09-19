@@ -18,8 +18,8 @@ class Commands(Command):
     def run(self):
         try:
             rmtree(os.path.join(here, 'dist'))
-        except OSError:
-            print('[X] could not run setup, OSError caught!')
+        except OSError as e:
+            print('[X] could not run setup, OSError caught! \n Error code \n{0}'.format(e.code))
             pass
 
         os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
