@@ -108,3 +108,22 @@ class PlayerLevel:
     @staticmethod
     def get_level(xp):
         return math.floor(REVERSE_PQ_PREFIX + 1 + math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * xp))
+
+    @staticmethod
+    def get_total_exp_to_full_level(level):
+        return (HALF_GROWTH * (level - 2) + BASE) * (level - 1)
+
+    @staticmethod
+    def get_total_exp_to_level(level):
+        l = math.floor(level)
+        x = level.get_total_exp_to_full_level(l)
+        if level == l:
+            return x
+        else:
+            return (level.get_total_exp_to_full_level(l + 1) - x) * (level % 1) + x
+
+    @staticmethod
+    def get_percentage_to_next_level(exp):
+        l = exp.getLevel(exp)
+        x = exp.get_total_exp_to_level(l)
+        return (exp - x) / (exp.get_total_exp_to_level(l + 1) - x)
