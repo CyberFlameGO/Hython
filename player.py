@@ -88,3 +88,17 @@ class Player:
             rank['rank'] = 'NON'
 
         return rank
+
+    class PlayerLevel:
+
+        EXP_FIELD = 0
+        LVL_FIELD = 0
+
+        BASE = 10000
+        GROWTH = 2500
+
+        HALF_GROWTH = 0.5 * GROWTH
+
+        REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH
+        REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX
+        GROWTH_DIVIDES_2 = 2 / GROWTH
