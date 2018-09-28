@@ -1,5 +1,18 @@
+import math
 from json_handler import Handler as h
 from exceptions import hypthon_exceptions as e
+
+EXP_FIELD = 0
+LVL_FIELD = 0
+
+BASE = 10000
+GROWTH = 2500
+
+HALF_GROWTH = 0.5 * GROWTH
+
+REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH
+REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX
+GROWTH_DIVIDES_2 = 2 / GROWTH
 
 
 class Player:
@@ -89,16 +102,9 @@ class Player:
 
         return rank
 
-    class PlayerLevel:
 
-        EXP_FIELD = 0
-        LVL_FIELD = 0
+class PlayerLevel:
 
-        BASE = 10000
-        GROWTH = 2500
-
-        HALF_GROWTH = 0.5 * GROWTH
-
-        REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH
-        REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX
-        GROWTH_DIVIDES_2 = 2 / GROWTH
+    @staticmethod
+    def get_level(xp):
+        return math.floor(REVERSE_PQ_PREFIX + 1 + math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * xp))
