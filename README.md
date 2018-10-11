@@ -1,4 +1,4 @@
-# Hypthon
+# HYTHON
 Hypixel API written in python
 #
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/Eros/Hypthon)
